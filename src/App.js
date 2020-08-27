@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Modal from "./Modal";
 
-function App() {
+const BUTTON_WRAPPER_STYLES = {
+  position: "relative",
+  zIndex: 1,
+};
+
+const OTHER_CONTENT_STYLES = {
+  position: "relative",
+  zIndex: 2,
+  backgroundColor: "red",
+  padding: "10px",
+};
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>
+        Using Portal with Modal learned from
+        https://www.youtube.com/watch?v=LyLa7dU5tp8
+      </h1>
+      <div style={BUTTON_WRAPPER_STYLES}>
+        <button>Open Modal</button>
+
+        <Modal>Fancy Modal</Modal>
+      </div>
+
+      <div style={OTHER_CONTENT_STYLES}>Other Content</div>
+    </>
   );
 }
-
-export default App;
