@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "./Modal";
 
 const BUTTON_WRAPPER_STYLES = {
@@ -14,6 +14,7 @@ const OTHER_CONTENT_STYLES = {
 };
 
 export default function App() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <h1>
@@ -21,9 +22,11 @@ export default function App() {
         https://www.youtube.com/watch?v=LyLa7dU5tp8
       </h1>
       <div style={BUTTON_WRAPPER_STYLES}>
-        <button>Open Modal</button>
+        <button onClick={() => setIsOpen(true)}>Open Modal</button>
 
-        <Modal>Fancy Modal</Modal>
+        <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+          Fancy Modal
+        </Modal>
       </div>
 
       <div style={OTHER_CONTENT_STYLES}>Other Content</div>
