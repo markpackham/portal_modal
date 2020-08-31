@@ -21,7 +21,10 @@ export default function App() {
         Using Portal with Modal learned from
         https://www.youtube.com/watch?v=LyLa7dU5tp8
       </h1>
-      <div style={BUTTON_WRAPPER_STYLES}>
+      <div
+        style={BUTTON_WRAPPER_STYLES}
+        onClick={() => console.log("clicked inside portal container")}
+      >
         <button onClick={() => setIsOpen(true)}>Open Modal</button>
 
         <Modal open={isOpen} onClose={() => setIsOpen(false)}>

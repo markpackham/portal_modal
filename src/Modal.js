@@ -24,6 +24,8 @@ const OVERLAY_STYLES = {
 export default function Modal({ open, children, onClose }) {
   if (!open) return null;
   // create a portal and target the "portal" id div instead of the "root" one in the public/index.html
+  // portal allows us event delegation (making it ideal for tooltips) vs just using render
+  // so this works in App.js onClick={() => console.log("clicked inside portal container")
   return ReactDOM.createPortal(
     <>
       <div style={OVERLAY_STYLES}></div>
